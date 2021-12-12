@@ -4,7 +4,9 @@ from factor_analyzer import FactorAnalyzer
 import matplotlib.pyplot as pyplot
 
 dataset = pandas.read_csv("dataset_final.csv")
+countries = dataset['country']
 dataset.drop(['Unnamed: 0', 'country'], axis = 1, inplace =  True)
+
 
 machine = FactorAnalyzer(n_factors = 40, rotation =  None)
 machine.fit(dataset)
@@ -27,6 +29,12 @@ output = machine.loadings_
 dataset = dataset.values
 
 result = numpy.dot(dataset, output)
-df = pandas.DataFrame(result, columns = ['factor 1 score', 'factor 2 score', 'factor 3 score', 'factor 4 score'])
+#print(type(result))
+#print(type(countries))
 
-df.to_csv("dataset_final.csv")
+df = pandas.DataFrame(result, columns = ['factor 1 score', 'factor 2 score', 'factor 3 score', 'factor 4 score'])
+df2 = pandas.DataFrame(countries)
+df = df.join(df2)
+#print(df)
+
+df.to_csv("result.csv")
