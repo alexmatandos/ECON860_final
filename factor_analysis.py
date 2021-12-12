@@ -16,6 +16,8 @@ pyplot.scatter(range(1, dataset.shape[1] + 1), ev)
 pyplot.savefig("scatter_ev.png")
 pyplot.close()
 
+#from the analysis of the graph above it's possible to observe that the "kink" occurs for four factor; thus this is the optimal value for factors
+
 machine = FactorAnalyzer(n_factors = 4, rotation = "varimax")
 machine.fit(dataset)
 output = machine.loadings_
