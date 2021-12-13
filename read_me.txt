@@ -1,0 +1,7 @@
+README
+
+(1) In 'factor_analysis.py', it is obtained the optimal number of factors (4) from eigenvalue analysis. By multiplying the answers of the questionnaire for each factor loading we obtained the predicted score for each four factors for each observation. Dataframe are generated for all four factors, and also for one-on-one unique combinations.
+
+(2) In 'cluster_analysis.py' we are able to analyze patterns for one given factor in relation to another certain factor. Two methods are utilized: KMeans and Gaussian Mixture. Regardless of which method or which factors are being compared, the optimal number of clusters found was two. We argue that, since the methods utilized does not capture relationships between one observation and its neighbors, both are not able to grasp the ellipsoidal patterns that were found in the datasets.
+
+(3) Finally, in 'country_analysis.py', we crop the dataset for three different countries: Great Britain, United States, and Kenya. We find that the cluster patterns in all three are pretty similar when comparing the factors, at least for high values for both factors being analyzed. The only difference is how populated such clusters are, but that's due to differences in the number of observations belonging to a given country.
